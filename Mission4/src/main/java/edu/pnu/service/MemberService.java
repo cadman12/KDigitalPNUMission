@@ -5,7 +5,7 @@ import java.util.Map;
 
 import edu.pnu.dao.log.LogDao;
 import edu.pnu.dao.log.LogDaoFileImpl;
-import edu.pnu.dao.member.MemberDaoH2Impl;
+import edu.pnu.dao.member.MemberDaoFileImpl;
 import edu.pnu.dao.member.MemberInterface;
 import edu.pnu.domain.MemberVO;
 
@@ -16,8 +16,9 @@ public class MemberService {
 	private LogDao logDao;
 
 	public MemberService() {
-		memberDao = new MemberDaoH2Impl();
+		//memberDao = new MemberDaoH2Impl();
 		//memberDao = new MemberDaoListImpl();
+		memberDao = new MemberDaoFileImpl();
 		
 		//logDao = new LogDaoH2Impl();
 		logDao = new LogDaoFileImpl();
