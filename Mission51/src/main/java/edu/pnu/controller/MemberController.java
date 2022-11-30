@@ -23,10 +23,14 @@ public class MemberController {
 	
 	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
 
+	public MemberController() {
+		log.info("MemberController() 생성자 호출됨.");
+	}
+
 	@Autowired
-	public MemberController(MemberService memberService) {
-		log.info("MemberController() 생성자가 호출됨.");
+	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;
+		log.info("MemberController -  setMemberService() 호출됨.");
 	}
 	
 	@GetMapping("/member")

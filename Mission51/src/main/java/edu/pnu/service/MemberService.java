@@ -3,6 +3,8 @@ package edu.pnu.service;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +15,25 @@ import edu.pnu.domain.MemberVO;
 @Service
 public class MemberService {
 
+	private static final Logger log = LoggerFactory.getLogger(MemberService.class);
+	
 	private MemberInterface memberDao;
 	private LogDao logDao;
 
+	public MemberService() {
+		log.info("MemberService() 생성자 호출됨.");
+	}
+
 	@Autowired
-	public MemberService(MemberInterface memberDao, LogDao logDao) {
+	public void setMemberInterface(MemberInterface memberDao) {
 		this.memberDao = memberDao;
+		log.info("MemberService - setMemberInterface() 호출됨.");
+	}
+	
+	@Autowired
+	public void setLogDao(LogDao logDao) {
 		this.logDao = logDao;
+		log.info("MemberService - setLogDao() 호출됨.");
 	}
 	
 	@SuppressWarnings("unchecked")

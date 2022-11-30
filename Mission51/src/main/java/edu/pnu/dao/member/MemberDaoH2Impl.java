@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,12 +15,19 @@ import edu.pnu.domain.MemberVO;
 
 @Repository
 public class MemberDaoH2Impl implements MemberInterface {
+	
+	private static final Logger log = LoggerFactory.getLogger(MemberDaoH2Impl.class);
 
 	private JdbcTemplate jdbcTemplate;
 	
+	public MemberDaoH2Impl() {
+		log.info("MemberDaoH2Impl() 생성자 호출됨.");
+	}
+
 	@Autowired
-	public MemberDaoH2Impl(JdbcTemplate jdbcTemplate) {
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
+		log.info("MemberDaoH2Impl - setJdbcTemplate() 호출됨.");
 	}
 	
 	@Override
