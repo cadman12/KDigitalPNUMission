@@ -34,3 +34,7 @@ Mission 5.
 Mission 51.
   1. Mission5에서 jdbc Connection을 만들어서 사용하는 방식을
   2. JdbcTemplate를 이용하는 방식으로 변경한 버전
+
+Mission 6.
+  1. Mission5에서 Spring jdbc 를 Spring Data JPA로 변경한 버전
+  2. Logging 구조를 SQL문을 저장하지 않고 메서드를 저장하는 방식으로 변경
